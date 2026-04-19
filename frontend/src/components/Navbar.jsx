@@ -17,6 +17,7 @@ const Navbar = () => {
       {user ? (
         <>
           <Link to="/dashboard">Dashboard</Link>
+          {user.role === 'admin' && <Link to="/admin">Admin Panel</Link>}
           <Link to="/events">Events</Link>
           <Link to="/announcements">Announcements</Link>
           <span style={{ color: 'white', marginRight: '1rem' }}>Welcome, {user.name}</span>
