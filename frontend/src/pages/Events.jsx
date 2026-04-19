@@ -29,21 +29,25 @@ const Events = () => {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Events</h2>
-      {events.map((event) => (
-        <div key={event._id} style={{ border: '1px solid #ccc', padding: '1rem', margin: '1rem 0' }}>
-          <h3>{event.eventName}</h3>
-          <p>Category: {event.category}</p>
-          <p>{event.description}</p>
-          <p>Date: {new Date(event.date).toLocaleDateString()}</p>
-          <p>Venue: {event.venue}</p>
-          <p>Fee: ₹{event.registrationFee}</p>
-          {user?.role === 'student' && (
-            <button onClick={() => handleRegister(event._id)}>Register</button>
-          )}
-        </div>
-      ))}
+    <div className="container">
+      <h2 style={{ color: 'white', marginBottom: '1rem' }}>Events</h2>
+      {events.length === 0 ? (
+        <p style={{ color: 'white' }}>No events available</p>
+      ) : (
+        events.map((event) => (
+          <div key={event._id} className="card">
+            <h3>{event.eventName}</h3>
+            <p><strong>Category:</strong> {event.category}</p>
+            <p>{event.description}</p>
+            <p><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
+            <p><strong>Venue:</strong> {event.venue}</p>
+            <p><strong>Fee:</strong> ₹{event.registrationFee}</p>
+            {user?.role === 'student' && (
+              <button onClick={() => handleRegister(event._id)}>Register</button>
+            )}
+          </div>
+        ))
+      )}
     </div>
   );
 };

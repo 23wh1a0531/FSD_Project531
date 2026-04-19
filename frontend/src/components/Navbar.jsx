@@ -12,17 +12,21 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={{ padding: '1rem', background: '#333', color: '#fff' }}>
-      <Link to="/" style={{ color: '#fff', marginRight: '1rem' }}>Home</Link>
+    <nav>
+      <Link to="/">Home</Link>
       {user ? (
         <>
-          <Link to="/dashboard" style={{ color: '#fff', marginRight: '1rem' }}>Dashboard</Link>
-          <Link to="/events" style={{ color: '#fff', marginRight: '1rem' }}>Events</Link>
-          <Link to="/announcements" style={{ color: '#fff', marginRight: '1rem' }}>Announcements</Link>
+          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/events">Events</Link>
+          <Link to="/announcements">Announcements</Link>
+          <span style={{ color: 'white', marginRight: '1rem' }}>Welcome, {user.name}</span>
           <button onClick={handleLogout}>Logout</button>
         </>
       ) : (
-        <Link to="/login" style={{ color: '#fff' }}>Login</Link>
+        <>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+        </>
       )}
     </nav>
   );

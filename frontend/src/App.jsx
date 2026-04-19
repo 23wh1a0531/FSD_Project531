@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Events from './pages/Events';
 import Announcements from './pages/Announcements';
+import './App.css';
 
 function App() {
   return (

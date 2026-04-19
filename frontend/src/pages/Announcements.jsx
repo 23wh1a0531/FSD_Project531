@@ -18,15 +18,21 @@ const Announcements = () => {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Announcements</h2>
-      {announcements.map((announcement) => (
-        <div key={announcement._id} style={{ border: '1px solid #ccc', padding: '1rem', margin: '1rem 0' }}>
-          <h3>{announcement.title}</h3>
-          <p>{announcement.content}</p>
-          <small>{new Date(announcement.createdAt).toLocaleString()}</small>
-        </div>
-      ))}
+    <div className="container">
+      <h2 style={{ color: 'white', marginBottom: '1rem' }}>Announcements</h2>
+      {announcements.length === 0 ? (
+        <p style={{ color: 'white' }}>No announcements available</p>
+      ) : (
+        announcements.map((announcement) => (
+          <div key={announcement._id} className="card">
+            <h3>{announcement.title}</h3>
+            <p>{announcement.content}</p>
+            <small style={{ color: '#718096' }}>
+              {new Date(announcement.createdAt).toLocaleString()}
+            </small>
+          </div>
+        ))
+      )}
     </div>
   );
 };
